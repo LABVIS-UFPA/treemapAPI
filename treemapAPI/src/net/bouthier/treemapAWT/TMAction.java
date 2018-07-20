@@ -65,13 +65,13 @@ public class TMAction
 //        } else {
 //            view.zoom(e.getX(), e.getY());
 //        }
-        Object nodeUnderTheMouse = view.getNodeUnderTheMouse(e);
-        view.setNodeUnderTheMouse(nodeUnderTheMouse);
-        if ((e.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK) {
-            view.unzoom();
-        }else{
-            view.zoom(e.getX(), e.getY());
-        }
+//        Object nodeUnderTheMouse = view.getNodeUnderTheMouse(e);
+//        view.setNodeUnderTheMouse(nodeUnderTheMouse);
+//        if ((e.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK) {
+//            view.unzoom();
+//        }else{
+//            view.zoom(e.getX(), e.getY());
+//        }
     }
 
 }

@@ -27,6 +27,7 @@
 package net.bouthier.treemapAWT;
 
 import java.awt.Paint;
+import javax.swing.JToolTip;
 
 
 /**
@@ -43,6 +44,7 @@ public abstract class TMComputeDrawAdapter
     /**
      * DO NOT OVERLOAD.
      */
+    @Override
     public final boolean isCompatibleWith(TMNode node) {
         if (node instanceof TMNodeEncapsulator) {
             TMNodeEncapsulator n = (TMNodeEncapsulator) node;
@@ -55,6 +57,7 @@ public abstract class TMComputeDrawAdapter
     /**
      * DO NOT OVERLOAD.
      */
+    @Override
     public final Paint getFilling(TMNodeAdapter nodeAdapter)
         throws TMExceptionBadTMNodeKind {
 
@@ -71,6 +74,7 @@ public abstract class TMComputeDrawAdapter
     /**
      * DO NOT OVERLOAD.
      */
+    @Override
     public final String getTooltip(TMNodeAdapter nodeAdapter)
         throws TMExceptionBadTMNodeKind {
 
@@ -82,10 +86,26 @@ public abstract class TMComputeDrawAdapter
             throw new TMExceptionBadTMNodeKind(this, node);
         }
     }
+    
+    /**
+     * DO NOT OVERLOAD.
+     */
+    @Override
+    public final JToolTip getDetailsOnDemand(TMNodeAdapter nodeAdapter)
+            throws TMExceptionBadTMNodeKind{
+        TMNode node = nodeAdapter.getNode();
+        if (isCompatibleWith(node)) {
+            TMNodeEncapsulator n = (TMNodeEncapsulator) node;
+            return getDetailsOnDemand(n.getNode());
+        } else {
+            throw new TMExceptionBadTMNodeKind(this, node);
+        }
+    }
 
     /**
      * DO NOT OVERLOAD.
      */
+    @Override
     public final String getTitle(TMNodeAdapter nodeAdapter)
         throws TMExceptionBadTMNodeKind {
 
@@ -101,6 +121,7 @@ public abstract class TMComputeDrawAdapter
     /**
      * DO NOT OVERLOAD.
      */
+    @Override
     public final Paint getTitleColor(TMNodeAdapter nodeAdapter)
         throws TMExceptionBadTMNodeKind {
 
@@ -134,6 +155,13 @@ public abstract class TMComputeDrawAdapter
      */
     public abstract String getTooltipOfObject(Object node);
 
+    /**
+     * TO BE IMPLEMENTED.
+     * @param node
+     * @return Retorn a tooltip objetct
+     */
+    public abstract JToolTip getDetailsOnDemand(Object node);
+    
     /**
      * TO BE IMPLEMENTED.
      * @param node

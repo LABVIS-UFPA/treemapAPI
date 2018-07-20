@@ -30,6 +30,7 @@ import java.awt.Color;
 import java.awt.Paint;
 import java.text.DateFormat;
 import java.util.Date;
+import javax.swing.JToolTip;
 
 import net.bouthier.treemapAWT.TMComputeDraw;
 import net.bouthier.treemapAWT.TMExceptionBadTMNodeKind;
@@ -203,6 +204,11 @@ public class TMFileDraw
         } else {
             throw new TMExceptionBadTMNodeKind(this, node);
         }
+    }
+
+    @Override
+    public JToolTip getDetailsOnDemand(TMNodeAdapter nodeAdapter) throws TMExceptionBadTMNodeKind {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

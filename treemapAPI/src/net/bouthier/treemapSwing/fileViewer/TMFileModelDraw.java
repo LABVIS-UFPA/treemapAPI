@@ -31,6 +31,7 @@ import java.awt.Paint;
 import java.io.File;
 import java.text.DateFormat;
 import java.util.Date;
+import javax.swing.JToolTip;
 
 import net.bouthier.treemapAWT.TMComputeDrawAdapter;
 
@@ -120,6 +121,11 @@ public class TMFileModelDraw
             return Color.black;
         }
         return Color.black;
+    }
+
+    @Override
+    public JToolTip getDetailsOnDemand(Object node) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

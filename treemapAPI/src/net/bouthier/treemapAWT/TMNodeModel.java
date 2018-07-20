@@ -29,6 +29,7 @@ import java.awt.Paint;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JToolTip;
 
 /**
  * The TMNodeModel class implements encapsulation of a TMNode for the TMView.
@@ -57,11 +58,14 @@ public class TMNodeModel
     private boolean dirtyD = true; // fill should be computed
     private Paint filling = null; // filling of this node
     private String tooltip = null; // tooltip of this node
+    private JToolTip tooltipObj = null; // tooltip of this node
     private boolean dirtyBufF = true; // filling buffer is dirty
     private Paint bufFill = null; // filling buffer
 
     private boolean dirtyBufT = true; // tooltip buffer is dirty
+    private boolean dirtyBufToolTipObj = true;// tooltip object buffer is dirty
     private String bufTip = null; // tooltip buffer
+    private JToolTip bufTipObj = null;//tooltip objetct buffer
 
     private String title = null; // title of the node
     private boolean dirtyBufTitle = true; // title buff dirty
@@ -199,6 +203,15 @@ public class TMNodeModel
     String getTooltip() {
         return bufTip;
     }
+    
+    /**
+     * Returns the tooltip object of this node.
+     *
+     * @return the tooltip of this node
+     */
+    JToolTip getToolTipObj(){
+        return bufTipObj;
+    }
 
     /**
      * Returns the title of the node.
@@ -284,6 +297,8 @@ public class TMNodeModel
             dirtyBufF = true;
             tooltip = modelRoot.getCDraw().getTooltip(this);
             dirtyBufT = true;
+            tooltipObj = modelRoot.getCDraw().getDetailsOnDemand(this);
+            dirtyBufToolTipObj = true;
             title = modelRoot.getCDraw().getTitle(this);
             dirtyBufTitle = true;
             colorTitle = modelRoot.getCDraw().getTitleColor(this);
@@ -308,6 +323,10 @@ public class TMNodeModel
         if (dirtyBufT) {
             bufTip = tooltip;
             dirtyBufT = false;
+        }
+        if(dirtyBufToolTipObj){
+            bufTipObj = tooltipObj;
+            dirtyBufToolTipObj = false;
         }
         if (dirtyBufTitle) {
             bufTitle = title;
@@ -339,6 +358,8 @@ public class TMNodeModel
         dirtyBufF = true;
         tooltip = modelRoot.getCDraw().getTooltip(this);
         dirtyBufT = true;
+        tooltipObj = modelRoot.getCDraw().getDetailsOnDemand(this);
+        dirtyBufToolTipObj = true;
         title = modelRoot.getCDraw().getTitle(this);
         dirtyBufTitle = true;
         colorTitle = modelRoot.getCDraw().getTitleColor(this);

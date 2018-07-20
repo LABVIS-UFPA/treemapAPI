@@ -25,6 +25,7 @@
  */
 package net.bouthier.treemapAWT;
 
+import java.awt.Point;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -39,7 +40,7 @@ public class TMAction
         extends MouseAdapter {
 
     private TMView view = null; // the view managed
-
+    private int[] pontos;
 
     /* --- Constructor --- */
     /**
@@ -65,13 +66,28 @@ public class TMAction
 //        } else {
 //            view.zoom(e.getX(), e.getY());
 //        }
-//        Object nodeUnderTheMouse = view.getNodeUnderTheMouse(e);
-//        view.setNodeUnderTheMouse(nodeUnderTheMouse);
-//        if ((e.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK) {
-//            view.unzoom();
-//        }else{
-//            view.zoom(e.getX(), e.getY());
-//        }
+        Object nodeUnderTheMouse = view.getNodeUnderTheMouse(e);
+        view.setNodeUnderTheMouse(nodeUnderTheMouse);
+        if ((e.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK) {
+            view.unzoom();
+        }else{
+            view.zoom(e.getX(), e.getY());
+        }
     }
 
+//    @Override
+//    public void mouseEntered(MouseEvent e) {
+//        Object nodeUnderTheMouse = view.getNodeUnderTheMouse(e);
+//        view.setNodeUnderTheMouse(nodeUnderTheMouse);
+//        pontos[0] = e.getX();
+//        pontos[1] = e.getY();
+//    }
+
+    /**
+     * @return the pontos
+     */
+    public int[] getPontos() {
+        return pontos;
+    }
+    
 }

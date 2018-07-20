@@ -27,6 +27,7 @@
 package net.bouthier.treemapAWT;
 
 import java.awt.Paint;
+import javax.swing.JToolTip;
 
 
 /**
@@ -38,6 +39,7 @@ import java.awt.Paint;
  * <UL>
  *   <LI> getFilling(), to compute and return the filling of a node
  *   <LI> getTooltip(), to compute and return the tooltip of a node
+ *   <LI> getDetailOnDemand(), to compute and return a JToolTip objetct of a node
  *   <LI> getTitle(), to compute and return the title (name) of a node
  *   <LI> getTitleColor(), to compute and return the color of the title
  * </UL>
@@ -94,6 +96,16 @@ public interface TMComputeDraw {
      */
     public String getTooltip(TMNodeAdapter nodeAdapter)
         throws TMExceptionBadTMNodeKind;
+    
+    /**
+     * It returns the details on demand in a node's tooltip.
+     * @param nodeAdapter               the node for which we want the tooltip
+     * @return                          the tooltip of the node
+     * @throws TMExceptionBadTMNodeKind If the kind of TMNode returned is 
+     *                                  incompatible with this TMComputeDraw.
+     */
+    public JToolTip getDetailsOnDemand(TMNodeAdapter nodeAdapter)
+            throws TMExceptionBadTMNodeKind;
 
     /**
      * Returns the title of the node.

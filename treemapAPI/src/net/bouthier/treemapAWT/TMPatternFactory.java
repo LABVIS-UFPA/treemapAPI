@@ -214,7 +214,8 @@ public class TMPatternFactory {
     private void buildPatternHorizontal() {
         BufferedImage image = new BufferedImage(16, 16, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = image.createGraphics();
-        g.setColor(Color.decode("#DCDCDC"));
+        g.setStroke(new BasicStroke(3f));
+        g.setColor(Color.white);
         g.fillRect(0, 0, 16, 16);
         g.setColor(Color.black);
 //        g.drawLine(0, 1, 16, 1);
@@ -234,6 +235,7 @@ public class TMPatternFactory {
         BufferedImage image
                 = new BufferedImage(16, 16, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = image.createGraphics();
+        g.setStroke(new BasicStroke(3f));
         g.setColor(Color.white);
         g.fillRect(0, 0, 16, 16);
         g.setColor(Color.black);
@@ -275,12 +277,11 @@ public class TMPatternFactory {
         BufferedImage image
                 = new BufferedImage(14, 14, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = image.createGraphics();
+        g.setStroke(new BasicStroke(2.2f));
         g.setColor(Color.white);
         g.fillRect(0, 0, 14, 14);
-        g.setColor(Color.decode("#9166c7"));
+        g.setColor(Color.black);
         g.drawLine(0, 0, 14, 14);
-        g.setColor(Color.decode("#ffd700"));
-
         g.drawLine(0, 14, 14, 0);
         Rectangle r = new Rectangle(0, 0, 14, 14);
         Paint pattern = new TexturePaint(image, r);
@@ -295,6 +296,7 @@ public class TMPatternFactory {
         BufferedImage image
                 = new BufferedImage(16, 16, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = image.createGraphics();
+        g.setStroke(new BasicStroke(2.1f));
         g.setColor(Color.white);
         g.fillRect(0, 0, 16, 16);
         g.setColor(Color.black);
@@ -314,14 +316,13 @@ public class TMPatternFactory {
         BufferedImage image
                 = new BufferedImage(16, 16, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = image.createGraphics();
+        g.setStroke(new BasicStroke(1.8f));
         g.setColor(Color.white);
         g.fillRect(0, 0, 16, 16);
         g.setColor(Color.black);
 //        g.drawLine(1, 0, 1, 16);
         g.drawLine(3, 0, 3, 16);
-        g.setColor(Color.gray);
         g.drawLine(8, 0, 8, 16);
-        g.setColor(Color.GREEN);
         g.drawLine(13, 0, 13, 16);
         Rectangle r = new Rectangle(0, 0, 16, 16);
         Paint pattern = new TexturePaint(image, r);
@@ -336,9 +337,10 @@ public class TMPatternFactory {
         BufferedImage image
                 = new BufferedImage(16, 16, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = image.createGraphics();
+        g.setStroke(new BasicStroke(1.5f));
         g.setColor(Color.white);
         g.fillRect(0, 0, 16, 16);
-        g.setColor(Color.decode("#008B8B"));
+        g.setColor(Color.black);
         g.drawLine(3, 1, 0, 4);
         g.drawLine(3, 1, 6, 4);
         g.drawLine(4, 8, 0, 12);
@@ -499,6 +501,7 @@ public class TMPatternFactory {
 //        patterns.put("PATTERN_DARK_GRAY", Color.darkGray);
         BufferedImage image = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = image.createGraphics();
+        g.setStroke(new BasicStroke(1.8f));
         g.setColor(Color.white);
         g.fillRect(0, 0, 10, 10);
         g.setColor(Color.black);
@@ -517,6 +520,7 @@ public class TMPatternFactory {
     private void buildPatternRight() {
         BufferedImage image = new BufferedImage(16, 16, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = image.createGraphics();
+        g.setStroke(new BasicStroke(1.8f));
         g.setColor(Color.white);
         g.fillRect(0, 0, 16, 16);
         g.setColor(Color.black);

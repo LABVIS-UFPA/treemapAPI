@@ -72,10 +72,14 @@ public class TMAlgorithmSquarified
         }
 
         if ((width > borderLimit) && (height > borderLimit)) {
-            x += borderSize;
+//            x += borderSize;
+//            y += borderSize;
+//            width -= borderSize * 2;
+//            height -= borderSize * 2;
+            x += 2;
             y += borderSize;
-            width -= borderSize * 2;
-            height -= borderSize * 2;
+            width -= 4;
+            height -= 17;
         }
 
         // sort child in decreasing size order
